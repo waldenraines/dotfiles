@@ -169,7 +169,7 @@ in
     '';
   };
 
-  system.stateVersion = "20.09";
+  system.stateVersion = "21.11";
 }
 
 # [1]: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
