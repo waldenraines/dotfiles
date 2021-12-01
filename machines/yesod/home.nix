@@ -200,7 +200,6 @@ in
       calibre
       chafa
       delta
-      dropbox-cli
       dmenu
       evemu
       evtest
@@ -300,8 +299,6 @@ in
           "";
     };
   };
-
-  nixpkgs.config.allowUnfree = true; # for Dropbox
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {

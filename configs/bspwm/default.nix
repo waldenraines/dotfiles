@@ -41,8 +41,6 @@ in
   ];
 
   extraConfig = ''
-    ${pkgs.dropbox-cli}/bin/dropbox start
-
     # Turn off the screen saver (`man xset` for more infos).
     xset s off
 

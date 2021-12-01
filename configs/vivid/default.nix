@@ -147,7 +147,6 @@ in
 
     unimportant = {
       editor = [ ".lvimrc" ];
-      dropbox = [ ".dropbox" ];
       lock = [ ".lock" ];
       build_artifacts = {
         latex = [
