@@ -3,13 +3,13 @@
 # TODO: change delta syntax-theme according to the colorscheme
 
 {
-  userName = "noib3";
-  userEmail = "riccardo.mazzarini@pm.me";
+  userName = "Walden Raines";
+  userEmail = "walden@waldenraines.com";
 
-  signing = {
-    key = "riccardo.mazzarini@pm.me";
-    signByDefault = true;
-  };
+  #signing = {
+    #key = "riccardo.mazzarini@pm.me";
+    #signByDefault = true;
+  #};
 
   extraConfig = {
     init = {
@@ -21,7 +21,7 @@
     };
 
     pager = {
-      diff = "delta";
+      #diff = "delta";
       log = "delta";
       reflog = "delta";
       show = "delta";
