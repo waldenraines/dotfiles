@@ -17,9 +17,13 @@ let
 in
 {
   imports = [
-    <nixos-hardware/purism/librem/13v3>
+  #  <nixos-hardware/purism/librem/13v3>
     /etc/nixos/hardware-configuration.nix
   ];
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable flakes
   nix = {
@@ -29,9 +33,8 @@ in
     '';
   };
 
-  console.keyMap = "us";
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/Rome";
+  # Set your time zone.
+  time.timeZone = "America/New_York";
 
   users = {
     users."walden" = {
@@ -45,23 +48,14 @@ in
         "plugdev"
       ];
     };
-
-    users."couchdb" = {
-      home = "/home/couchdb";
-      shell = pkgs.fish;
-      isSystemUser = true;
-      createHome = true;
-      extraGroups = [ "couchdb" ];
-    };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  #  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     vim
+    wget
   ];
-
-  boot.loader.systemd-boot.enable = true; 
 
   hardware.bluetooth = {
     enable = true;
@@ -75,18 +69,12 @@ in
   networking = {
     hostName = "yesod";
     useDHCP = false;
-    interfaces.enp2s0.useDHCP = true;
+    interfaces.eno0.useDHCP = true;
+    interfaces.wlp1s0.useDHCP = true;
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [
       8384
     ];
-    wireless.enable = true;
-
-    wireless.networks = {
-     "Co-working WiFi" = {
-       psk = "FW123456";
-     };
-    };
   };
 
   sound = {
