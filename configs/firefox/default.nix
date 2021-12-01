@@ -63,8 +63,8 @@ in
 {
   extensions = with extensions; [
     bitwarden
-    downloads-sidebar
-    tridactyl-no-new-tab
+    #downloads-sidebar
+    #tridactyl-no-new-tab
   ];
 
   profiles = {

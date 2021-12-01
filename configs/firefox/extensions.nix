@@ -39,37 +39,37 @@ in
     };
   };
 
-  downloads-sidebar = buildFirefoxXpiAddon {
-    pname = "downloads-sidebar";
-    version = "1.0.1";
-    addonId = "{bbb81fb3-49c1-4a42-bcc9-94bc93e19fb8}";
-    url = "https://addons.mozilla.org/firefox/downloads/file/3166696/downloads_sidebar-1.0.1-fx.xpi";
-    sha256 = "1bcmr3mq0ysjkvsdh3p2w5wp9a2d1745ldx3xj3wrx53dm477cy8";
-    meta = with pkgs.lib; {
-      homepage = "https://github.com/aesqe/firefox-downloads-sidebar";
-      description = "Display a list of your latest downloads in the Firefox sidebar.";
-      license = licenses.mit;
-      platforms = platforms.all;
-    };
-  };
+#  downloads-sidebar = buildFirefoxXpiAddon {
+#    pname = "downloads-sidebar";
+#    version = "1.0.1";
+#    addonId = "{bbb81fb3-49c1-4a42-bcc9-94bc93e19fb8}";
+#    url = "https://addons.mozilla.org/firefox/downloads/file/3166696/downloads_sidebar-1.0.1-fx.xpi";
+#    sha256 = "1bcmr3mq0ysjkvsdh3p2w5wp9a2d1745ldx3xj3wrx53dm477cy8";
+#    meta = with pkgs.lib; {
+#      homepage = "https://github.com/aesqe/firefox-downloads-sidebar";
+#      description = "Display a list of your latest downloads in the Firefox sidebar.";
+#      license = licenses.mit;
+#      platforms = platforms.all;
+#    };
+#  };
 
-  tridactyl-no-new-tab = buildFirefoxXpiAddon {
-    pname = "tridactyl";
-    version = "1.21.1";
-    addonId = "tridactyl.vim.betas.nonewtab@cmcaine.co.uk";
-    url = "https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi";
-    sha256 = "0fsxjyv2d1j0gwvqqqh5l4zv9jcy1vqkkhxfsx08zd475sczmm0z";
-    meta = with pkgs.lib; {
-      homepage = "https://github.com/cmcaine/tridactyl";
-      description = ''
-        Vim, but in your browser. Replace Firefox's control mechanism with one
-        modelled on Vim.
-
-        This addon is very usable, but is in an early stage of development.
-        We intend to implement the majority of Vimperator's features.
-      '';
-      license = licenses.asl20;
-      platforms = platforms.all;
-    };
-  };
+#  tridactyl-no-new-tab = buildFirefoxXpiAddon {
+#    pname = "tridactyl";
+#    version = "1.21.1";
+#    addonId = "tridactyl.vim.betas.nonewtab@cmcaine.co.uk";
+#    url = "https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi";
+#    sha256 = "0fsxjyv2d1j0gwvqqqh5l4zv9jcy1vqkkhxfsx08zd475sczmm0z";
+#    meta = with pkgs.lib; {
+#      homepage = "https://github.com/cmcaine/tridactyl";
+#      description = ''
+#        Vim, but in your browser. Replace Firefox's control mechanism with one
+#        modelled on Vim.
+#
+#        This addon is very usable, but is in an early stage of development.
+#        We intend to implement the majority of Vimperator's features.
+#      '';
+#      license = licenses.asl20;
+#      platforms = platforms.all;
+#    };
+#  };
 }
