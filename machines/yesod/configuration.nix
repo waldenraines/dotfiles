@@ -3,7 +3,7 @@
 let
   unstable = import <nixos-unstable> { };
 
-  colorscheme = "gruvbox";
+  colorscheme = "";
 
   dirs = {
     colorscheme = ../../colorschemes + "/${colorscheme}";
@@ -11,26 +11,13 @@ let
   };
 
   configs = {
-    grub = (
-      import (dirs.configs + /grub) {
-        colors = import (dirs.colorscheme + /grub.nix);
-        background-image = dirs.colorscheme + /background.png;
-      }
-    );
-
     transmission = import (dirs.configs + /transmission);
   };
 
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec -a "$0" "$@"
-  '';
 in
 {
   imports = [
+    <nixos-hardware/purism/librem/13v3>
     /etc/nixos/hardware-configuration.nix
   ];
 
@@ -47,8 +34,8 @@ in
   time.timeZone = "Europe/Rome";
 
   users = {
-    users."noib3" = {
-      home = "/home/noib3";
+    users."walden" = {
+      home = "/home/walden";
       shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [
@@ -71,47 +58,13 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    nvidia-offload
     vim
   ];
 
-  boot = {
-    consoleLogLevel = 0;
-    kernelParams = [
-      "quiet"
-      "udev.log_priority=3"
-      "button.lid_init_state=open"
-      "vt.cur_default=0x700010"
-    ];
-
-    initrd.verbose = false;
-
-    loader.grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-      gfxmodeEfi = "1920x1080";
-      gfxmodeBios = "1920x1080";
-      splashImage = dirs.colorscheme + /background.png;
-      theme = configs.grub;
-    };
-
-    loader.efi.canTouchEfiVariables = true;
-  };
+  boot.loader.systemd-boot.enable = true; 
 
   hardware.bluetooth = {
     enable = true;
-  };
-
-  hardware.openrazer = {
-    enable = true;
-  };
-
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
   };
 
   hardware.pulseaudio = {
@@ -120,17 +73,20 @@ in
   };
 
   networking = {
-    hostName = "blade";
+    hostName = "yesod";
     useDHCP = false;
     interfaces.enp2s0.useDHCP = true;
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [
       8384
     ];
-  };
+    wireless.enable = true;
 
-  security.sudo = {
-    wheelNeedsPassword = false;
+    wireless.networks = {
+     "Co-working WiFi" = {
+       psk = "FW123456";
+     };
+    };
   };
 
   sound = {
@@ -184,7 +140,6 @@ in
     autoRepeatDelay = 150;
     autoRepeatInterval = 33;
     layout = "us";
-    videoDrivers = [ "nvidia" ];
 
     libinput = {
       enable = true;
@@ -197,7 +152,7 @@ in
     displayManager = {
       autoLogin = {
         enable = true;
-        user = "noib3";
+        user = "walden";
       };
     };
 

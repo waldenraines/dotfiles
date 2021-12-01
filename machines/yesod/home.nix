@@ -2,9 +2,9 @@
 
 let
   unstable = import <nixos-unstable> { };
-  machine = "blade";
+  machine = "yesod";
 
-  colorscheme = "gruvbox";
+  colorscheme = "onedark";
   font = "fira-code";
 
   dirs = {
