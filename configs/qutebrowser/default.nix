@@ -230,8 +230,8 @@ in
       "gre" = "open https://reddit.com";
       "tre" = "open -t https://reddit.com";
 
-      "gtb" = "open https://github.com/noib3";
-      "ttb" = "open -t https://github.com/noib3";
+      "gtb" = "open https://github.com/";
+      "ttb" = "open -t https://github.com/";
 
       "grhm" = "open https://github.com/nix-community/home-manager/find/master";
       "trhm" = "open -t https://github.com/nix-community/home-manager/find/master";
