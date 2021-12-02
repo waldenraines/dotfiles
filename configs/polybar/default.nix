@@ -71,6 +71,10 @@ in
         "3;3"
         "4;4"
         "5;5"
+        "6;6"
+        "7;7"
+        "8;8"
+        "9;9"
         "videos;%{T3}%{T-}"
       ];
       label.focused = {
@@ -241,8 +245,8 @@ in
   script = ''
     PATH=$PATH:\
     /run/wrappers/bin:\
-    /home/noib3/.nix-profile/bin:\
-    /etc/profiles/per-user/noib3/bin:\
+    /home/walden/.nix-profile/bin:\
+    /etc/profiles/per-user/walden/bin:\
     /nix/var/nix/profiles/default/bin:/run/current-system/sw/bin polybar bar &
   '';
 }

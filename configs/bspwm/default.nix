@@ -8,8 +8,8 @@ let
 in
 {
   settings = {
-    "window_gap" = 25;
-    "top_padding" = 20;
+    "window_gap" = 10;
+    "top_padding" = 25;
     "border_width" = 2;
     "focus_follows_pointer" = true;
     "normal_border_color" = colors.border.unfocused;
@@ -18,7 +18,7 @@ in
   };
 
   monitors = {
-    "focused" = [ "1" "2" "3" "4" "5" "videos" ];
+    "focused" = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "videos" ];
   };
 
   rules = {
