@@ -3,7 +3,7 @@
 let
   unstable = import <nixos-unstable> { };
 
-  colorscheme = "";
+  colorscheme = "onedark";
 
   dirs = {
     colorscheme = ../../colorschemes + "/${colorscheme}";
@@ -17,7 +17,7 @@ let
 in
 {
   imports = [
-  #  <nixos-hardware/purism/librem/13v3>
+    <nixos-hardware/purism/librem/13v3>
     /etc/nixos/hardware-configuration.nix
   ];
 
@@ -50,12 +50,16 @@ in
     };
   };
 
-  #  nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     vim
     wget
   ];
+
+  hardware.openrazer = {
+    enable = true;
+  };
 
   hardware.bluetooth = {
     enable = true;
@@ -87,15 +91,6 @@ in
 
   programs.nm-applet = {
     enable = true;
-  };
-
-  services.couchdb = {
-    enable = true;
-    package = unstable.couchdb3;
-    user = "couchdb";
-    group = "couchdb";
-    databaseDir = "/home/couchdb/couchdb";
-    bindAddress = "0.0.0.0";
   };
 
   services.geoclue2 = {
