@@ -24,13 +24,9 @@ rec {
     style = "Bold";
   };
 } // (
-  if machine == "blade" then
+  if machine == "yesod" then
     {
       size = 9;
-    }
-  else if machine == "mbair" then
-    {
-      size = 19;
     }
   else { }
 )
