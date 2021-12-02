@@ -44,7 +44,9 @@ in
     else { }
   );
 
-  interactiveShellInit = ''
+  interactiveShellInit = '' 
+    ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+
     set fish_greeting ""
 
     set fish_cursor_default block
@@ -105,10 +107,6 @@ in
       ''
     else ""
   );
-
- # promptInit = ''
- #   ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
- # '';
 
   plugins = [
     {
