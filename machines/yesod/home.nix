@@ -200,6 +200,7 @@ in
       calcurse
       calibre
       chafa
+      chromium
       delta
       #discord
       dmenu
@@ -215,6 +216,7 @@ in
       gotop
       graphicsmagick-imagemagick-compat
       inkscape
+      ledger-live-desktop
       libnotify
       jmtpfs
       keepass
@@ -274,6 +276,7 @@ in
       transmission-remote-gtk
       tree
       tree-sitter
+      trezor-suite
       ueberzug
       unzip
       vimv
