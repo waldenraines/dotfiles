@@ -39,7 +39,7 @@ in
   users = {
     users."walden" = {
       home = "/home/walden";
-      shell = pkgs.fish;
+      shell = pkgs.bash;
       isNormalUser = true;
       extraGroups = [
         "wheel"
@@ -53,6 +53,7 @@ in
   #nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    bash
     vim
     wget
   ];
