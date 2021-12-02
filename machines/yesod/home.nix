@@ -11,7 +11,7 @@ let
     colorscheme = ../../colorschemes + "/${colorscheme}";
     configs = ../../configs;
     font = ../../fonts + "/${font}";
-    sync = config.home.homeDirectory + "/Dropbox";
+    sync = config.home.homeDirectory + "/Nextcloud";
   };
 
   configs.alacritty = import (dirs.configs + /alacritty) {
@@ -187,19 +187,21 @@ in
   ];
 
   home = {
-    username = "noib3";
-    homeDirectory = "/home/noib3";
-    stateVersion = "21.03";
+    username = "walden";
+    homeDirectory = "/home/walden";
+    stateVersion = "21.11";
 
     packages = with pkgs; [
       asciinema
       atool
+      betterlockscreen
       bitwarden
       bitwarden-cli
       calcurse
       calibre
       chafa
       delta
+      #discord
       dmenu
       evemu
       evtest
@@ -215,11 +217,13 @@ in
       inkscape
       libnotify
       jmtpfs
+      keepass
       keyutils
       mediainfo
       mkvtoolnix-cli
       neovim-nightly
       networkmanager
+      nextcloud-client
       (nerdfonts.override {
         fonts = [
           "FiraCode"
@@ -258,8 +262,14 @@ in
         ];
       })
       scrot
+      signal-desktop
       simplescreenrecorder
+      simplescreenrecorder
+      slack
+      slack-term
       speedtest-cli
+      srm
+      tdesktop
       unstable.texlive.combined.scheme-full
       transmission-remote-gtk
       tree
@@ -267,6 +277,7 @@ in
       ueberzug
       unzip
       vimv
+      vnote
       wmctrl
       xclip
       xdotool
