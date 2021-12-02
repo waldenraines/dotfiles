@@ -1,4 +1,4 @@
-filename="$SYNCDIR/screenshots/$(date +%F@%T).png"
+filename="$SYNCDIR/$(date +%F@%T).png"
 
 case "$1" in
   whole)
@@ -22,7 +22,7 @@ function notify_screenshot() {
     --app-name="New screenshot" \
     --icon="$filename" \
     "$(basename "$filename")" \
-    "Saved in $(echo "$SYNCDIR/screenshots" | sed "s/.*$(whoami)/~/")"
+    "Saved in $(echo "$SYNCDIR" | sed "s/.*$(whoami)/~/")"
 }
 
 take_screenshot && notify_screenshot || true
