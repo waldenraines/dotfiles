@@ -14,11 +14,11 @@ let
     }
     (builtins.readFile ./scripts/fill-bitwarden.py);
 
-  home-page = "https://google.com";
+  home-page = "https://duckduckgo.com";
 in
 {
   searchEngines = {
-    "DEFAULT" = "https://google.com/search?q={}";
+    "DEFAULT" = "https://duckduckgo.com/?q={}";
     "yt" = "https://youtube.com/results?search_query={}";
     "nixo" = "https://search.nixos.org/options?channel=21.05&query={}";
     "nixp" = "https://search.nixos.org/packages?channel=21.05&query={}";
