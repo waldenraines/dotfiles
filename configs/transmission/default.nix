@@ -5,9 +5,9 @@ let
     (import ./notify-done.sh.nix);
 in
 {
-  user = "noib3";
+  user = "walden";
   settings = {
-    download-dir = "/home/noib3/Downloads";
+    download-dir = "/home/walden/Downloads";
     script-torrent-done-enabled = true;
     script-torrent-done-filename = "${notify-done}/bin/notify-done";
   };

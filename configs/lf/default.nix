@@ -187,7 +187,7 @@ in
     if pkgs.stdenv.isLinux then
       {
         ag = "drag-and-drop";
-        gvl = "cd /run/media/noib3";
+        gvl = "cd /run/media/walden";
       }
     else if pkgs.stdenv.isDarwin then
       {
