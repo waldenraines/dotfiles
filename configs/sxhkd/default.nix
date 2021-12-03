@@ -57,7 +57,7 @@ in
     "super + q" = "bspc node -k";
 
     # Rotate trees
-    "alt + {_,shift + }r" = "bspc node @/ -R {90,-90}";
+    "super + {_,shift + }r" = "bspc node @/ -R {90,-90}";
 
     # Make windows larger
     "alt + {Left,Down,Up,Right}" = 
