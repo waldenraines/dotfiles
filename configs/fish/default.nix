@@ -11,7 +11,6 @@ in
 {
   shellAliases = {
     cat = "bat";
-    grep = "rg";
     ipython = "ipython --no-confirm-exit";
     ls = "ls -Alhv --color --file-type --group-directories-first --quoting-style=literal";
     wget = "wget --hsts-file=~/.cache/wget/wget-hsts";
