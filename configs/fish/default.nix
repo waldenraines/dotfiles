@@ -97,6 +97,8 @@ in
     # active.
     source ~/.config/fish/conf.d/plugin-pisces.fish
 
+    eval "ssh-agents" > /dev/null
+
     ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
   '' + (
     if pkgs.stdenv.isDarwin then

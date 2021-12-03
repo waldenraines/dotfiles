@@ -273,6 +273,7 @@ in
       slack-term
       speedtest-cli
       srm
+      ssh-agents
       tdesktop
       unstable.texlive.combined.scheme-full
       tor-browser-bundle-bin
