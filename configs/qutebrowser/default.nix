@@ -218,17 +218,8 @@ in
       "gh" = "open ${home-page}";
       "th" = "open -t ${home-page}";
 
-      "gma" = "open https://mail.protonmail.com/inbox";
-      "tma" = "open -t https://mail.protonmail.com/inbox";
-
-      "gkp" = "open https://keep.google.com";
-      "tkp" = "open -t https://keep.google.com";
-
-      "gyt" = "open https://youtube.com";
-      "tyt" = "open -t https://youtube.com";
-
-      "gre" = "open https://reddit.com";
-      "tre" = "open -t https://reddit.com";
+      "gma" = "open https://mail.protonmail.com/u/0/inbox";
+      "tma" = "open -t https://mail.protonmail.com/u/0/inbox";
 
       "gtb" = "open https://github.com/";
       "ttb" = "open -t https://github.com/";
