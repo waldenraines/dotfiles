@@ -33,8 +33,7 @@ return require('packer').startup(function(use)
   --   requires = {'kyazdani42/nvim-web-devicons'},
   -- }
   use {
-    -- 'noib3/cokeline.nvim',
-    '~/Dropbox/projects/cokeline.nvim',
+    'noib3/cokeline.nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
     config = configs.cokeline,
   }

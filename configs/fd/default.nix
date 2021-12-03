@@ -3,7 +3,6 @@
 {
   ignored = [
     "/*"
-    "!/Dropbox"
     "!/Downloads"
     "!/.config"
     "/.config/*"
