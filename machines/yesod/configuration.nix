@@ -110,15 +110,6 @@ in
     enable = true;
   };
 
-  services.udev = {
-    extraHwdb = ''
-      evdev:input:b0003v1532p026F*
-       KEYBOARD_KEY_700e2=leftmeta
-       KEYBOARD_KEY_700e3=leftalt
-       KEYBOARD_KEY_700e6=rightmeta
-    '';
-  };
-
   services.xserver = {
     enable = true;
     autoRepeatDelay = 150;
