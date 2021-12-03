@@ -202,7 +202,7 @@ in
       chafa
       chromium
       delta
-      #discord
+      discord
       dmenu
       evemu
       evtest
@@ -223,6 +223,7 @@ in
       keyutils
       mediainfo
       mkvtoolnix-cli
+      neofetch
       neovim-nightly
       networkmanager
       nextcloud-client
@@ -244,6 +245,7 @@ in
       pinentry_qt5
       poppler_utils
       proselint # used by ALE for TeX and Markdown formatting
+      protonvpn-cli
       (python39.withPackages (
         ps: with ps; [
           ipython
@@ -273,6 +275,7 @@ in
       srm
       tdesktop
       unstable.texlive.combined.scheme-full
+      tor-browser-bundle-bin
       transmission-remote-gtk
       tree
       tree-sitter
