@@ -39,7 +39,7 @@ in
     "super + {f,d,g}" = "bspc node -t {~fullscreen,tiled,fullscreen}";
 
     # Toggle window gaps, borders and paddings
-    "alt + s" = "toggle-gaps";
+    "super + i" = "toggle-gaps";
 
     # Toggle float
     "super + b" = "bspc node -t ~floating";
@@ -60,11 +60,11 @@ in
     "super + {_,shift + }r" = "bspc node @/ -R {90,-90}";
 
     # Make windows larger
-    "alt + {Left,Down,Up,Right}" = 
+    "super + alt + {Left,Down,Up,Right}" = 
       "bspc node -z {left -25 0,bottom 0 25,top 0 -25,right 25 0}";
 
     # Make windows smaller
-    "ctrl + {Left,Down,Up,Right}" = 
+    "super + ctrl + {Left,Down,Up,Right}" = 
       "bspc node -z {right -25 0,top 0 25,bottom 0 -25,left 25 0}";
 
     # Balance and mirror desktops
@@ -74,7 +74,7 @@ in
     "super + shift + {Left,Right}" = "bspc desktop -f {prev,next}";
 
     # Focus or send window to the given desktop
-    "super + {_,shift + }{1-9}" = "bspc {desktop -f,node -d} '^{1-9}'";
+    "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,0}'";
 
     # Control audio volume
     "XF86Audio{LowerVolume,RaiseVolume,Mute}" =
