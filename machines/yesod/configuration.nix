@@ -58,10 +58,6 @@ in
     wget
   ];
 
-  hardware.openrazer = {
-    enable = true;
-  };
-
   hardware.bluetooth = {
     enable = true;
   };
