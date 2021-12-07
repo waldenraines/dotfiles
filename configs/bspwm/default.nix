@@ -3,6 +3,10 @@
 let
   pkgs = import <nixpkgs> { config = { allowUnfree = true; }; };
 
+ 
+  dual-monitors = pkgs.writeShellScriptBin "dual-monitorrs"
+    (builtins.readFile ./scripts/dual-monitors.sh);
+
   mpv-focus-prev = pkgs.writeShellScriptBin "mpv-focus-prev"
     (builtins.readFile ./scripts/mpv-focus-prev.sh);
 in
@@ -18,7 +22,8 @@ in
   };
 
   monitors = {
-    "focused" = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "videos" ];
+    "eDP-1" = [ "1" "2" "3" "4" ];
+    "DP-2" = [ "5" "6" "7" "8" "9" "0" "videos"];
   };
 
   rules = {
@@ -41,13 +46,15 @@ in
   ];
 
   extraConfig = ''
-    # Turn off the screen saver (`man xset` for more infos).
-    xset s off
-
     # lower key rate to prevent double letters
     xset r rate 250 60
 
     keyctl link @u @s
+
+    # run the xrandr command if an external monitor is connected to the
+    # laptop.  This must be executed before the polybar command, so that
+    # polybar can set the two separate bars properly.
+    dual-monitors
 
     systemctl --user start pulseaudio.service
     systemctl --user restart polybar.service

@@ -16,6 +16,8 @@ in
   settings = {
     "bar/bar" = {
       height = 25;
+      monitor = "eDP-1";
+
       enable-ipc = true;
       cursor-click = "pointer";
       override-redirect = true;
@@ -46,11 +48,36 @@ in
         "bluetooth"
         "wifi"
         "ethernet"
-        # "volume"
+        "volume"
         "battery"
         "datetime"
         "notification-center"
       ];
+    };
+
+    "bar/bar_monitor" = {
+      height = 25;
+      monitor = "DP-2";
+
+      # Make Polybar go under other windows when going fullscreen
+
+      wm-restack = "bspwm";
+
+      font = [
+        "${T1.family}:style=${T1.style}:size=${T1.size};${T1.padding-top}"
+        "${T2.family}:style=${T2.style}:size=${T2.size};${T2.padding-top}"
+        "${T3.family}:style=${T3.style}:size=${T3.size};${T3.padding-top}"
+        "${T4.family}:style=${T4.style}:size=${T4.size};${T4.padding-top}"
+        "${T5.family}:style=${T5.style}:size=${T5.size};${T5.padding-top}"
+        "${T6.family}:style=${T6.style}:size=${T6.size};${T6.padding-top}"
+        "${T7.family}:style=${T7.style}:size=${T7.size};${T7.padding-top}"
+        "${T8.family}:style=${T8.style}:size=${T8.size};${T8.padding-top}"
+      ];
+      foreground = colors.bar.fg;
+      background = colors.bar.bg;
+    
+      modules.left = "workspaces";
+      modules.right = "datetime";
     };
 
     "module/power" = {
@@ -65,6 +92,8 @@ in
 
     "module/workspaces" = {
       type = "internal/bspwm";
+      pin-workspaces = true;
+
       ws.icon = [
         "1;1"
         "2;2"
@@ -75,8 +104,10 @@ in
         "7;7"
         "8;8"
         "9;9"
+        "0;0"
         "videos;%{T3}%{T-}"
       ];
+
       label.focused = {
         text = "%icon%";
         padding = 1;
