@@ -192,7 +192,20 @@ in
     stateVersion = "21.11";
 
     packages = with pkgs; [
+      # required for unchained ops 
+      #awscli 
+      #jq 
+      #python39Packages.virtualenv 
+      #pwgen 
+      # end required for unchained ops     
+
+      # unchained
+      lastpass-cli 
+ 
       asciinema
+      aspell
+      aspellDicts.en
+      aspellDicts.en-computers
       atool
       betterlockscreen
       bitwarden
@@ -216,7 +229,9 @@ in
       gotop
       graphicsmagick-imagemagick-compat
       inkscape
+      betterlockscreen
       ledger-live-desktop
+      ledger-udev-rules
       libnotify
       jmtpfs
       keepass
@@ -268,7 +283,6 @@ in
       scrot
       signal-desktop
       simplescreenrecorder
-      simplescreenrecorder
       slack
       slack-term
       speedtest-cli
@@ -284,13 +298,14 @@ in
       ueberzug
       unzip
       vimv
-      vnote
+      vlc
       wmctrl
       xclip
       xdotool
       xorg.xev
       xorg.xwininfo
       yarn
+      zip
     ]
     ++ (builtins.attrValues desktop-items)
     ++ (builtins.attrValues language-servers)
