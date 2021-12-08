@@ -253,6 +253,7 @@ in
       })
       nixpkgs-fmt
       nodejs
+      p7zip
       pandoc
       pciutils # for lspci
       pfetch
@@ -289,6 +290,7 @@ in
       srm
       ssh-agents
       tdesktop
+      tdrop
       unstable.texlive.combined.scheme-full
       tor-browser-bundle-bin
       transmission-remote-gtk

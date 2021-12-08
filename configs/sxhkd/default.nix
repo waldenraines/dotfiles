@@ -1,8 +1,8 @@
 let
   pkgs = import <nixpkgs> { };
 
-  take-screenshot = pkgs.writeShellScriptBin "take-screenshot"
-    (builtins.readFile ./take-screenshot.sh);
+  winhide = pkgs.writeShellScriptBin "winhide"
+    (builtins.readFile ./winhide.sh);
 in
 {
   keybindings = {
@@ -74,7 +74,14 @@ in
     "super + shift + {Left,Right}" = "bspc desktop -f {prev,next}";
 
     # Focus or send window to the given desktop
-    "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,0}'";
+    "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
+
+    # tdrop dropdown scratchpad
+    "super + minus" =
+      "tdrop -ma -w -4 alacritty";
+
+    # hide/unhide window
+    "super + shift + i" = "${winhide}/bin/winhide";
 
     # Control audio volume
     "XF86Audio{LowerVolume,RaiseVolume,Mute}" =
@@ -83,6 +90,5 @@ in
     # Screenshot either the whole screen or a portion of it and send a
     # notification.
     "super + ctrl + {3,4}" = "flameshot {full, gui} -p ~/screenshots";
-    # "${take-screenshot}/bin/take-screenshot {whole, portion}";
   };
 }
