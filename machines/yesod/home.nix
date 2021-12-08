@@ -255,6 +255,7 @@ in
       nodejs
       p7zip
       pandoc
+      pavucontrol
       pciutils # for lspci
       pfetch
       pick-colour-picker
