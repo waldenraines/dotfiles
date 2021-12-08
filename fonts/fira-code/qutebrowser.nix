@@ -1,6 +1,6 @@
 rec {
   family = "FiraCode Nerd Font";
-  size = "14pt";
+  size = "10pt";
 
   dmenu = {
     inherit family;
