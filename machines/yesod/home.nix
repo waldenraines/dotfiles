@@ -233,6 +233,7 @@ in
       ledger-live-desktop
       ledger-udev-rules
       libnotify
+      libreoffice
       jmtpfs
       keepass
       keyutils
