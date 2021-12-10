@@ -175,7 +175,7 @@ in
       start_pages = [ home-page ];
     };
 
-    zoom.default = "130%";
+    zoom.default = "100%";
   };
 
   keyMappings = {

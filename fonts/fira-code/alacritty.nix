@@ -26,7 +26,7 @@ rec {
 } // (
   if machine == "yesod" then
     {
-      size = 9;
+      size = 7;
     }
   else { }
 )
