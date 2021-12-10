@@ -210,6 +210,7 @@ in
       betterlockscreen
       bitwarden
       bitwarden-cli
+      brightnessctl
       calcurse
       calibre
       chafa
