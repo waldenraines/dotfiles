@@ -37,6 +37,9 @@ in
   time.timeZone = "America/New_York";
 
   users = {
+    # Needed for ledger
+    groups.plugdev = {};
+    
     users."walden" = {
       home = "/home/walden";
       shell = pkgs.bash;
