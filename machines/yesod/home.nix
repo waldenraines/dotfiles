@@ -299,7 +299,8 @@ in
       transmission-remote-gtk
       tree
       tree-sitter
-      trezor-suite
+      trezord
+      trezor-udev-rules
       ueberzug
       unzip
       vimv
