@@ -232,7 +232,6 @@ in
       inkscape
       betterlockscreen
       ledger-live-desktop
-      ledger-udev-rules
       libnotify
       libreoffice
       jmtpfs
@@ -300,7 +299,7 @@ in
       tree
       tree-sitter
       trezord
-      trezor-udev-rules
+      #trezor-suite
       ueberzug
       unzip
       vimv

@@ -56,6 +56,10 @@ in
   #nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # work stuff
+    trezor-udev-rules
+    ledger-udev-rules
+
     bash
     vim
     wget
