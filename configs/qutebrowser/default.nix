@@ -222,7 +222,7 @@ in
       "tpm" = "open -t https://mail.protonmail.com/u/0/inbox";
 
       "gtb" = "open https://github.com/";
-      "ttb" = "open -t https://github.com/";
+      "tgtb" = "open -t https://github.com/";
     };
 
     command = {
