@@ -43,12 +43,12 @@ let
 
   configs.fd = import (dirs.configs + /fd) { inherit machine; };
 
-  configs.firefox = import (dirs.configs + /firefox) {
-    font = import (dirs.font + /firefox.nix) {
-      inherit machine;
-    };
-    colors = import (dirs.colorscheme + /firefox.nix);
-  };
+#  configs.firefox = import (dirs.configs + /firefox) {
+#    font = import (dirs.font + /firefox.nix) {
+#      inherit machine;
+#    };
+#    colors = import (dirs.colorscheme + /firefox.nix);
+#  };
 
   configs.fish = import (dirs.configs + /fish) {
     colors = import (dirs.colorscheme + /fish.nix);
@@ -232,6 +232,7 @@ in
       inkscape
       betterlockscreen
       ledger-live-desktop
+      #ledger-udev-rules
       libnotify
       libreoffice
       jmtpfs
@@ -298,8 +299,9 @@ in
       transmission-remote-gtk
       tree
       tree-sitter
-      trezord
-      #trezor-suite
+      #trezord
+      trezor-suite
+      #trezor-udev-rules
       ueberzug
       unzip
       vimv
@@ -398,9 +400,9 @@ in
     enable = true;
   } // configs.fd;
 
-  programs.firefox = {
-    enable = true;
-  } // configs.firefox;
+#  programs.firefox = {
+#    enable = true;
+#  } // configs.firefox;
 
   programs.fish = {
     enable = true;

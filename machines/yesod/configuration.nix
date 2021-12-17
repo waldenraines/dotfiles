@@ -37,9 +37,6 @@ in
   time.timeZone = "America/New_York";
 
   users = {
-    # Needed for ledger
-    groups.plugdev = {};
-    
     users."walden" = {
       home = "/home/walden";
       shell = pkgs.bash;
@@ -48,7 +45,6 @@ in
         "wheel"
         "input"
         "networkmanager"
-        "plugdev"
       ];
     };
   };
@@ -56,10 +52,6 @@ in
   #nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # work stuff
-    trezor-udev-rules
-    ledger-udev-rules
-
     bash
     vim
     wget
