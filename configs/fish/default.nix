@@ -93,6 +93,8 @@ in
     bind -M insert \cX\cR fuzzy-ripgrep
     bind -M insert \cS fuzzy-search
 
+    alias ssht="TERM=xterm-color ssh"
+
     # For some reason the pisces plugin needs to be sourced manually to become
     # active.
     source ~/.config/fish/conf.d/plugin-pisces.fish
