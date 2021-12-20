@@ -279,5 +279,11 @@ in
     /home/walden/.nix-profile/bin:\
     /etc/profiles/per-user/walden/bin:\
     /nix/var/nix/profiles/default/bin:/run/current-system/sw/bin polybar bar &
+
+    PATH=$PATH:\
+    /run/wrappers/bin:\
+    /home/walden/.nix-profile/bin:\
+    /etc/profiles/per-user/walden/bin:\
+    /nix/var/nix/profiles/default/bin:/run/current-system/sw/bin polybar bar_monitor &
   '';
 }
