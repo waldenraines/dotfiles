@@ -1,6 +1,10 @@
 let
   pkgs = import <nixpkgs> { };
 
+
+  external-monitor = pkgs.writeShellScriptBin "external-monitor"
+    (builtins.readFile ./external-monitor.sh);
+
   winhide = pkgs.writeShellScriptBin "winhide"
     (builtins.readFile ./winhide.sh);
 in
@@ -82,6 +86,12 @@ in
 
     # hide/unhide window
     "super + shift + i" = "${winhide}/bin/winhide";
+
+    # gather desktops to monitor/laptop
+    "super + shift + F3" = "${external-monitor}/bin/external-monitor";
+
+    # Control brightnesss
+    "XF86MonBrightness{Up,Down}" = "brightnessctl s 10{+,-}";
 
     # Control audio volume
     "XF86Audio{LowerVolume,RaiseVolume,Mute}" =
