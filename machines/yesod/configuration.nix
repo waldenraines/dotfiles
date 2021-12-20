@@ -61,6 +61,8 @@ in
     enable = true;
   };
 
+  hardware.ledger.enable = true;
+
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
@@ -100,6 +102,8 @@ in
   services.transmission = {
     enable = true;
   } // configs.transmission;
+
+  services.trezord.enable = true;
 
   services.udisks2 = {
     enable = true;
