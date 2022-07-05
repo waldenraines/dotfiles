@@ -6,10 +6,10 @@
   userName = "Walden Raines";
   userEmail = "walden@waldenraines.com";
 
-  #signing = {
-    #key = "riccardo.mazzarini@pm.me";
+  signing = {
+    key = "walden@unchained-capital.com";
     #signByDefault = true;
-  #};
+  };
 
   extraConfig = {
     init = {
@@ -22,9 +22,9 @@
 
     pager = {
       #diff = "delta";
-      log = "delta";
-      reflog = "delta";
-      show = "delta";
+      #log = "delta";
+      #reflog = "delta";
+      #show = "delta";
     };
 
     interactive = {
@@ -33,8 +33,7 @@
 
     delta = {
       features = "line-numbers decorations";
-      # syntax-theme = "TwoDark";
-      syntax-theme = "Nord";
+      syntax-theme = "TwoDark";
       decorations = {
         file-style = "omit";
         commit-decoration-style = "bold yellow box ul";
