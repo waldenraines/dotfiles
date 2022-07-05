@@ -95,6 +95,13 @@ in
     enable = true;
   };
 
+
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  # Important to resolve .local domains of printers, otherwise you get an error
+  # like  "Impossible to connect to XXX.local: Name or service not known"
+  services.avahi.nssmdns = true;
+
   services.tlp = {
     enable = true;
   };
@@ -144,6 +151,9 @@ in
   };
 
   system.stateVersion = "21.11";
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "walden" ];
 }
 
 # [1]: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
