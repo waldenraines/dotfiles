@@ -40,8 +40,8 @@ in
     bind gre open https://reddit.com
     bind tre tabopen https://reddit.com
 
-    bind gdf open https://github.com/noib3/dotfiles
-    bind tdf tabopen https://github.com/noib3/dotfiles
+    bind gdf open https://github.com/
+    bind tdf tabopen https://github.com/
 
     bind gbg open https://rarbgunblocked.org/torrents.php
     bind tbg tabopen https://rarbgunblocked.org/torrents.php

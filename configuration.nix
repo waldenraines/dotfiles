@@ -205,7 +205,7 @@ in
   };
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "noib3" ];
+  users.extraGroups.vboxusers.members = [ "walden" ];
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;

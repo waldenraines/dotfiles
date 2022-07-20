@@ -20,11 +20,11 @@ let
     }
     (builtins.readFile ./scripts/fill-bitwarden.py);
 
-  homePage = "https://google.com";
+  homePage = "https://duckduckgo.com";
 in
 {
   searchEngines = {
-    "DEFAULT" = "https://google.com/search?q={}";
+    "DEFAULT" = "https://duckduckgo.com/?q={}";
     "yt" = "https://youtube.com/results?search_query={}";
     "nixo" = "https://search.nixos.org/options?channel=unstable&query={}";
     "nixp" = "https://search.nixos.org/packages?channel=unstable&query={}";
@@ -182,7 +182,7 @@ in
       start_pages = [ homePage ];
     };
 
-    zoom.default = "130%";
+    zoom.default = "100%";
   };
 
   keyMappings = {
@@ -225,29 +225,14 @@ in
       "gh" = "open ${homePage}";
       "th" = "open -t ${homePage}";
 
-      "gtb" = "open https://github.com/noib3";
-      "ttb" = "open -t https://github.com/noib3";
+      "gtb" = "open https://github.com/";
+      "ttb" = "open -t https://github.com/";
 
-      "gma" = "open https://mail.protonmail.com/inbox";
-      "tma" = "open -t https://mail.protonmail.com/inbox";
+      "pm" = "open https://mail.protonmail.com/u/0/inbox";
+      "tpm" = "open -t https://mail.protonmail.com/u/0/inbox";
 
-      "gkp" = "open https://keep.google.com";
-      "tkp" = "open -t https://keep.google.com";
-
-      "grhm" = "open https://github.com/nix-community/home-manager/find/master";
-      "trhm" = "open -t https://github.com/nix-community/home-manager/find/master";
-
-      "gnv" = "open https://github.com/neovim/neovim/tree/master/src/nvim";
-      "tnv" = "open -t https://github.com/neovim/neovim/tree/master/src/nvim";
-
-      "gbg" = "open https://rarbgunblocked.org/torrents.php";
-      "tbg" = "open -t https://rarbgunblocked.org/torrents.php";
-
-      "g12ft" = "open https://12ft.io/";
-      "t12ft" = "open -t https://12ft.io/";
-
-      "gtra" = "open http://localhost:9091/transmission/web/";
-      "ttra" = "open -t http://localhost:9091/transmission/web/";
+      "gtb" = "open https://github.com/";
+      "tgtb" = "open -t https://github.com/";
     };
 
     command = {

@@ -7,11 +7,11 @@ let
   );
 in
 {
-  userName = "noib3";
-  userEmail = "riccardo.mazzarini@pm.me";
+  userName = "Walden Raines";
+  userEmail = "walden@waldenraines.com";
 
   signing = {
-    key = "riccardo.mazzarini@pm.me";
+    key = "walden@unchained-capital.com";
     signByDefault = true;
   };
 
@@ -38,6 +38,7 @@ in
     delta = {
       features = "line-numbers decorations";
       syntax-theme = delta-syntax-theme;
+
       decorations = {
         file-style = "omit";
         commit-decoration-style = "bold yellow box ul";

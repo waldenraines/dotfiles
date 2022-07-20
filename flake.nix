@@ -1,5 +1,5 @@
 {
-  description = "noib3's dotfiles";
+  description = "walden's dotfiles";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -27,7 +27,7 @@
 
   outputs = { self, ... }@inputs: with inputs;
     let
-      username = "noib3";
+      username = "walden";
       colorscheme = "tokyonight";
       font-family = "FiraCode Nerd Font";
 
