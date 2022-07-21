@@ -45,6 +45,23 @@ let
 in
 {
   home.packages = with pkgs; [
+    ### WALDEN ###
+    # chromium
+    discord
+    keepass
+    libreoffice
+    protonvpn-cli
+    signal-desktop
+    slack
+    srm
+    tdrop
+    vlc
+
+    # bitcoin stuff
+    ledger-live-desktop
+    trezor-suite
+    ### END: WALDEN ###
+
     asciinema
     bottom
     delta
@@ -53,9 +70,10 @@ in
     file
     fuzzy-ripgrep
     helix
-    jq
     imagemagick_light # Contains `convert`
+    jq
     neovim-nightly
+    nextcloud-client
     (nerdfonts.override {
       fonts = [
         "FiraCode"
@@ -99,6 +117,13 @@ in
     gnused
     libtool
   ] ++ lib.lists.optionals isLinux [
+    ### WALDEN ###
+    brightnessctl
+    giph
+    pavucontrol
+    ssh-agents 
+    ### END: WALDEN ###
+
     blueman
     brave
     calcurse
@@ -111,9 +136,7 @@ in
     libnotify
     noto-fonts-emoji
     obs-studio
-    peek
     pick-colour-picker
-    signal-desktop
     ueberzug
     wmctrl
     xclip
@@ -318,11 +341,6 @@ in
   } // (import "${configDir}/zathura" {
     inherit colorscheme font-family palette hexlib;
   }));
-
-  services.dropbox = lib.mkIf isLinux {
-    enable = true;
-    path = cloudDir;
-  };
 
   services.dunst = lib.mkIf isLinux ({
     enable = true;

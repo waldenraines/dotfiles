@@ -68,18 +68,18 @@ in
       wm-restack = "bspwm";
 
       font = [
-        "${T1.family}:style=${T1.style}:size=${T1.size};${T1.padding-top}"
-        "${T2.family}:style=${T2.style}:size=${T2.size};${T2.padding-top}"
-        "${T3.family}:style=${T3.style}:size=${T3.size};${T3.padding-top}"
-        "${T4.family}:style=${T4.style}:size=${T4.size};${T4.padding-top}"
-        "${T5.family}:style=${T5.style}:size=${T5.size};${T5.padding-top}"
-        "${T6.family}:style=${T6.style}:size=${T6.size};${T6.padding-top}"
-        "${T7.family}:style=${T7.style}:size=${T7.size};${T7.padding-top}"
-        "${T8.family}:style=${T8.style}:size=${T8.size};${T8.padding-top}"
+        "${T1.family}:style=${T1.style}:size=${builtins.toString T1.size};${builtins.toString T1.padding-top}"
+        "${T2.family}:style=${T2.style}:size=${builtins.toString T2.size};${builtins.toString T2.padding-top}"
+        "${T3.family}:style=${T3.style}:size=${builtins.toString T3.size};${builtins.toString T3.padding-top}"
+        "${T4.family}:style=${T4.style}:size=${builtins.toString T4.size};${builtins.toString T4.padding-top}"
+        "${T5.family}:style=${T5.style}:size=${builtins.toString T5.size};${builtins.toString T5.padding-top}"
+        "${T6.family}:style=${T6.style}:size=${builtins.toString T6.size};${builtins.toString T6.padding-top}"
+        "${T7.family}:style=${T7.style}:size=${builtins.toString T7.size};${builtins.toString T7.padding-top}"
+        "${T8.family}:style=${T8.style}:size=${builtins.toString T8.size};${builtins.toString T8.padding-top}"
       ];
       foreground = colors.bar.fg;
       background = colors.bar.bg;
-    
+
       modules.left = "workspaces";
       modules.right = "datetime";
     };
@@ -146,13 +146,13 @@ in
       label.padding = 1;
     };
 
-    "module/bluetooth" = {
-      type = "custom/script";
-      exec = "POWER_ON_FG=${colors.bluetooth.icon.on} POWER_OFF_FG=${colors.bluetooth.icon.off} CONNECTED_FG=${colors.bluetooth.icon.connected} dmenu-bluetooth --status";
-      interval = 1;
-      click.left = "dmenu-bluetooth &";
-      label.padding = 1;
-    };
+#    "module/bluetooth" = {
+#      type = "custom/script";
+#      exec = "POWER_ON_FG=${colors.bluetooth.icon.on} POWER_OFF_FG=${colors.bluetooth.icon.off} CONNECTED_FG=${colors.bluetooth.icon.connected} dmenu-bluetooth --status";
+#      interval = 1;
+#      click.left = "dmenu-bluetooth &";
+#      label.padding = 1;
+#    };
 
     "module/wifi" = {
       type = "internal/network";

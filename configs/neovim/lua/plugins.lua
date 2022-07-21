@@ -147,7 +147,7 @@ local spec = function()
 
   -- Obviously the best bufferline plugin around ;)
   use({
-    "~/Dropbox/projects/nvim-cokeline",
+    "~/code/nvim-cokeline",
     requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("plug-config/cokeline")

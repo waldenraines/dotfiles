@@ -63,7 +63,7 @@
       mkDarwinConfig = args: darwin.lib.darwinSystem {
         inherit (args) system;
         specialArgs = {
-          cloudDir = "${getHomeDirectory args.system}/Dropbox";
+          cloudDir = "${getHomeDirectory args.system}/Nextcloud";
           inherit (args) machine;
           inherit
             colorscheme
@@ -102,7 +102,7 @@
           ./modules/services/skhd.nix
         ];
         extraSpecialArgs = {
-          cloudDir = "${getHomeDirectory args.system}/Dropbox";
+          cloudDir = "${getHomeDirectory args.system}/Nextcloud";
           inherit (args) machine;
           inherit
             colorscheme
@@ -116,14 +116,14 @@
       };
     in
     {
-      nixosConfigurations.blade = mkNixOSConfig {
+      nixosConfigurations.yesod = mkNixOSConfig {
         system = "x86_64-linux";
-        machine = "blade";
+        machine = "yesod";
       };
 
-      homeConfigurations."${username}@blade" = mkHomeConfig {
+      homeConfigurations."${username}@yesod" = mkHomeConfig {
         system = "x86_64-linux";
-        machine = "blade";
+        machine = "yesod";
       };
 
       darwinConfigurations.skunk = mkDarwinConfig {

@@ -12,16 +12,11 @@
 }:
 
 let
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec -a "$0" "$@"
-  '';
+  unstable = import <nixos-unstable> { };
 in
 {
   imports = [
+    <nixos-hardware/purism/librem/13v3>
     /etc/nixos/hardware-configuration.nix
   ];
 
@@ -37,7 +32,7 @@ in
 
   console.keyMap = "us";
   i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/Rome";
+  time.timeZone = "America/New_York";
 
   users = {
     users."${username}" = {
@@ -52,19 +47,10 @@ in
         "vboxusers"
       ];
     };
-
-    users."couchdb" = {
-      home = "/home/couchdb";
-      shell = pkgs.fish;
-      isSystemUser = true;
-      createHome = true;
-      extraGroups = [ "couchdb" ];
-    };
   };
 
   environment.systemPackages = with pkgs; [
     glibc
-    nvidia-offload
     neovim
   ];
 
@@ -79,24 +65,16 @@ in
 
     initrd.verbose = false;
 
-    loader.grub = {
-      enable = true;
-    } // (import "${configDir}/grub" {
-      inherit pkgs machine colorscheme palette hexlib;
-    });
-
+    # Use the systemd-boot EFI boot loader.
+    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-  };
+  #hardware.bluetooth = {
+  #  enable = true;
+  #};
 
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
+  hardware.ledger.enable = true;
 
   hardware.pulseaudio = {
     enable = true;
@@ -104,17 +82,14 @@ in
   };
 
   networking = {
-    hostName = "blade";
+    hostName = "yesod";
     useDHCP = false;
-    interfaces.enp2s0.useDHCP = true;
+    interfaces.eno0.useDHCP = true;
+    interfaces.wlp1s0.useDHCP = true;
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [
       8384
     ];
-  };
-
-  security.sudo = {
-    wheelNeedsPassword = false;
   };
 
   sound = {
@@ -133,15 +108,6 @@ in
     enable = true;
   };
 
-  services.couchdb = {
-    enable = true;
-    package = pkgs.couchdb3;
-    user = "couchdb";
-    group = "couchdb";
-    databaseDir = "/home/couchdb/couchdb";
-    bindAddress = "0.0.0.0";
-  };
-
   services.geoclue2 = {
     enable = true;
   };
@@ -149,6 +115,12 @@ in
   services.tlp = {
     enable = true;
   };
+
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  # Important to resolve .local domains of printers, otherwise you get an error
+  # like  "Impossible to connect to XXX.local: Name or service not known"
+  services.avahi.nssmdns = true;
 
   services.transmission = {
     enable = true;
@@ -160,26 +132,17 @@ in
     enable = true;
   };
 
-  services.udev = {
-    extraHwdb = ''
-      evdev:input:b0003v1532p026F*
-       KEYBOARD_KEY_700e2=leftmeta
-       KEYBOARD_KEY_700e3=leftalt
-       KEYBOARD_KEY_700e6=rightmeta
-    '';
-  };
-
   services.xserver = {
     enable = true;
     autoRepeatDelay = 150;
     autoRepeatInterval = 33;
     layout = "us";
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "intel" ];
 
     libinput = {
       enable = true;
       touchpad = {
-        naturalScrolling = true;
+        naturalScrolling = false;
         disableWhileTyping = true;
       };
     };
@@ -207,8 +170,9 @@ in
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "walden" ];
 
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  #system.autoUpgrade.enable = true;
+  #system.autoUpgrade.allowReboot = true;
+
   system.stateVersion = "20.09";
 }
 

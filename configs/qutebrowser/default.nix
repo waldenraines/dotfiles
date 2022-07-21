@@ -225,9 +225,6 @@ in
       "gh" = "open ${homePage}";
       "th" = "open -t ${homePage}";
 
-      "gtb" = "open https://github.com/";
-      "ttb" = "open -t https://github.com/";
-
       "pm" = "open https://mail.protonmail.com/u/0/inbox";
       "tpm" = "open -t https://mail.protonmail.com/u/0/inbox";
 

@@ -12,7 +12,8 @@ in
 {
   extensions = with (import ./extensions.nix);
     [
-      bitwarden
+      lastpass
+      # bitwarden
       # downloads-sidebar
       # tridactyl-no-new-tab
     ];

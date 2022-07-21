@@ -16,7 +16,7 @@ in
   settings = {
     inherit shell font colors;
 
-    window = optionalAttrs (machine == "blade")
+    window = optionalAttrs (machine == "yesod")
       {
         padding = {
           x = 3;

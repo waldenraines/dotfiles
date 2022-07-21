@@ -38,7 +38,7 @@ in
   };
 
   monitors = {
-    "focused" = [ "1" "2" "3" "4" "5" "videos" ];
+    "focused" = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "videos" ];
   };
 
   rules = {
@@ -63,6 +63,9 @@ in
   extraConfig = ''
     # Turn off the screen saver (`man xset` for more infos).
     xset s off
+
+    # lower key rate to prevent double letters
+    xset r rate 250 60
 
     keyctl link @u @s
 

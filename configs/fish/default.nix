@@ -18,7 +18,7 @@ in
   shellAliases = {
     cat = "bat";
     gc = "git clone";
-    grep = "rg";
+    rgrep = "rg";
     ipython = "ipython --no-confirm-exit";
     ls = "ls -Alhv --color --file-type --group-directories-first --quoting-style=literal";
     wget = "${pkgs.wget}/bin/wget --hsts-file=~/.cache/wget/wget-hsts";
@@ -98,6 +98,8 @@ in
     source ~/.config/fish/conf.d/plugin-pisces.fish
 
     direnv hook fish | source
+    # TODO: needed for ssh-agents?
+    # eval "ssh-agents" > /dev/null
 
     ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
   '' + pkgs.lib.strings.optionalString isDarwin ''
@@ -134,5 +136,10 @@ in
     fuzzy-kill = builtins.readFile ./functions/fuzzy-kill.fish;
     fuzzy-ripgrep = builtins.readFile ./functions/fuzzy-ripgrep.fish;
     fuzzy-search = builtins.readFile ./functions/fuzzy-search.fish;
+
+    # work
+    merge-master-to-dev = builtins.readFile ./functions/merge-master-to-dev.fish;
+    merge-dev-to-stag = builtins.readFile ./functions/merge-dev-to-stag.fish;
+    merge-stag-to-prod = builtins.readFile ./functions/merge-stag-to-prod.fish;
   };
 }

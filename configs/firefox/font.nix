@@ -5,17 +5,17 @@
 let
   f = {
     "Iosevka Nerd Font" = {
-      "blade".size = 23;
+      "yesod".size = 23;
       "mbair".size = 20;
     };
     "Mononoki Nerd Font" = {
-      "blade".size = 23;
+      "yesod".size = 23;
       "mbair".size = 20;
     };
   };
 
   default_size = {
-    "blade" = 22;
+    "yesod" = 22;
     "skunk" = 19;
   };
 in

@@ -52,7 +52,7 @@ let
 in
 {
   text = {
-    inherit family;
+    family = family;
     style = "Regular";
     size = 13;
     padding-top = 3;
