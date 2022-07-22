@@ -118,6 +118,7 @@ in
     libtool
   ] ++ lib.lists.optionals isLinux [
     ### WALDEN ###
+    betterlockscreen
     brightnessctl
     giph
     pavucontrol
