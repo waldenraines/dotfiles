@@ -126,6 +126,17 @@
         machine = "yesod";
       };
 
+      nixosConfigurations.saturday = mkNixOSConfig {
+        system = "x86_64-linux";
+        machine = "saturday";
+      };
+
+      homeConfigurations."${username}@saturday" = mkHomeConfig {
+        system = "x86_64-linux";
+        machine = "saturday";
+      };
+
+
       darwinConfigurations.skunk = mkDarwinConfig {
         system = "x86_64-darwin";
         machine = "skunk";
