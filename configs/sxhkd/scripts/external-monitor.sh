@@ -6,12 +6,12 @@ number_of_monitors=${#monitors[@]}
 if [ $number_of_monitors -gt 1 ]; then
 	echo "Two monitors detected"
 
-	xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
-		--output DP-1 --off \
-		--output HDMI-1 --off \
-		--output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal \
-		--output DP-3 --off \
-		--output HDMI-2 --off
+	xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+		--output DP1 --off \
+		--output HDMI1 --off \
+		--output DP2 --mode 1920x1080 --pos 1920x0 --rotate normal \
+		--output DP3 --off \
+		--output HDMI2 --off
 
 	for monitor in "${monitors[@]}"; do
 		is_primary=`xrandr | grep $monitor | grep primary`
@@ -36,12 +36,12 @@ else
 	monitor=${monitors[0]}
 	echo "One monitor detected $monitor"
 
-	xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
-		--output DP-1 --off \
-		--output HDMI-1 --off \
-		--output DP-2 --off \
-		--output DP-3 --off \
-		--output HDMI-2 --off
+	xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+		--output DP1 --off \
+		--output HDMI1 --off \
+		--output DP2 --off \
+		--output DP3 --off \
+		--output HDMI2 --off
 
 	bspc desktop "5" --to-monitor $monitor 
 	bspc desktop "6" --to-monitor $monitor 

@@ -22,7 +22,7 @@ in
   settings = {
     "bar/bar" = {
       height = 25;
-      monitor = "eDP-1";
+      monitor = "eDP1";
 
       enable-ipc = true;
       cursor-click = "pointer";
