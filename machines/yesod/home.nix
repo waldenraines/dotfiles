@@ -116,8 +116,8 @@ let
         name = "qutebrowser";
         desktopName = "qutebrowser";
         exec = "${pkgs.qutebrowser}/bin/qutebrowser";
-        mimeType = lib.concatStringsSep ";" [
-          "text/html"
+        mimeTypes = [
+          "text/html,"
           "x-scheme-handler/about"
           "x-scheme-handler/http"
           "x-scheme-handler/https"
@@ -192,16 +192,6 @@ in
     stateVersion = "21.11";
 
     packages = with pkgs; [
-      # required for unchained ops 
-      #awscli 
-      #jq 
-      #python39Packages.virtualenv 
-      #pwgen 
-      # end required for unchained ops     
-
-      # unchained
-      lastpass-cli 
- 
       asciinema
       aspell
       aspellDicts.en
@@ -216,7 +206,6 @@ in
       chafa
       chromium
       delta
-      discord
       dmenu
       evemu
       evtest
@@ -230,8 +219,8 @@ in
       gotop
       graphicsmagick-imagemagick-compat
       inkscape
-      betterlockscreen
-      ledger-live-desktop
+      joplin
+      joplin-desktop
       libnotify
       libreoffice
       jmtpfs
@@ -286,23 +275,21 @@ in
       scrot
       signal-desktop
       simplescreenrecorder
-      slack
-      slack-term
       speedtest-cli
       srm
       ssh-agents
       tdesktop
       tdrop
       unstable.texlive.combined.scheme-full
-      tor-browser-bundle-bin
       transmission-remote-gtk
       tree
       tree-sitter
-      trezor-suite
       ueberzug
       unzip
       vimv
       vlc
+      wine
+      winetricks
       wmctrl
       xclip
       xdotool
