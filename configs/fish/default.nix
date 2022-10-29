@@ -137,5 +137,6 @@ in
     fuzzy-kill = builtins.readFile ./functions/fuzzy-kill.fish;
     fuzzy-ripgrep = builtins.readFile ./functions/fuzzy-ripgrep.fish;
     fuzzy-search = builtins.readFile ./functions/fuzzy-search.fish;
+    gri = builtins.readFile ./functions/gri.fish;
   };
 }

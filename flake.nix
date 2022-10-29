@@ -14,22 +14,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay/master";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
   };
 
   outputs = { self, ... }@inputs: with inputs;
     let
       username = "walden";
-      colorscheme = "tokyonight";
-      font-family = "FiraCode Nerd Font";
+      colorscheme = "gruvbox";
+      font-family = "JetBrainsMono Nerd Font";
 
       hexlib = import ./palettes/hexlib.nix { inherit (nixpkgs) lib; };
       palette = import (./palettes + "/${colorscheme}.nix");
@@ -80,10 +81,6 @@
       };
 
       mkHomeConfig = args: home-manager.lib.homeManagerConfiguration {
-        inherit username;
-        inherit (args) system;
-        homeDirectory = getHomeDirectory args.system;
-        stateVersion = "22.05";
         pkgs = import nixpkgs {
           inherit (args) system;
           config = {
@@ -92,15 +89,24 @@
             allowUnsupportedSystem = true;
           };
           overlays = [
-            neovim-nightly-overlay.overlay
-            rust-overlay.overlay
+            # neovim-nightly-overlay.overlay
+            # rust-overlay.overlays.default
           ];
         };
-        extraModules = [
+        modules = [
+          ./home.nix
           ./modules/programs/spacebar.nix
           ./modules/programs/vivid.nix
           ./modules/services/yabai.nix
           ./modules/services/skhd.nix
+          {
+            home = {
+              inherit username;
+              # inherit (args) system;
+              homeDirectory = getHomeDirectory args.system;
+              stateVersion = "22.11";
+            };
+          }
         ];
         extraSpecialArgs = {
           cloudDir = "${getHomeDirectory args.system}/Nextcloud";
@@ -114,7 +120,13 @@
             hexlib
             ;
         };
-        configuration = import ./home.nix;
+        # inherit username;
+        # inherit (args) system;
+        # homeDirectory = getHomeDirectory args.system;
+        # stateVersion = "22.05";
+        # extraModules = [
+        # ];
+        # configuration = import ./home.nix;
       };
     in
     {
