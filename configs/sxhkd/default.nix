@@ -102,7 +102,7 @@ in
     "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
 
     # gather desktops to monitor/laptop
-    #"super + shift + F3" = "${external-monitor}/bin/external-monitor";
+    "super + shift + F3" = "${external-monitor}/bin/external-monitor";
 
     # tdrop dropdown scratchpad
     "super + minus" =
