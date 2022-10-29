@@ -61,7 +61,7 @@ in
 
     "bar/bar_monitor" = {
       height = 25;
-      monitor = "DP-2";
+      monitor = "DP2";
 
       # Make Polybar go under other windows when going fullscreen
 
