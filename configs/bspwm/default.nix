@@ -26,7 +26,7 @@ let
 in
 {
   settings = {
-    "window_gap" = 28;
+    "window_gap" = 10;
     "top_padding" = 15;
     "border_width" = 2;
     "focus_follows_pointer" = true;
