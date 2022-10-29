@@ -46,8 +46,8 @@ in
 {
   home.packages = with pkgs; [
     ### WALDEN ###
-    # chromium
-    discord
+    chromium
+    joplin-desktop
     keepass
     libreoffice
     protonvpn-cli
@@ -56,10 +56,8 @@ in
     srm
     tdrop
     vlc
-
-    # bitcoin stuff
-    ledger-live-desktop
-    trezor-suite
+    wine
+    winetricks
     ### END: WALDEN ###
 
     asciinema

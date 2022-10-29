@@ -65,6 +65,15 @@ in
 
     initrd.verbose = false;
 
+    # Configuration options for LUKS Device
+    initrd.luks.devices = {
+      crypted = {
+        device = "/dev/disk/by-partuuid/85df5657-b8ac-439d-a5c3-a8449202a87a";
+        header = "/dev/disk/by-partuuid/42ad8cb0-0e62-425a-9097-e2ebc57f53c2";
+        preLVM = true;
+      };
+    };
+
     # Use the systemd-boot EFI boot loader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
