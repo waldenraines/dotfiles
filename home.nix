@@ -53,7 +53,6 @@ in
     libreoffice
     protonvpn-cli
     signal-desktop
-    slack
     srm
     tdrop
     vlc
@@ -69,10 +68,13 @@ in
     file
     fuzzy-ripgrep
     helix
+    hexyl
     imagemagick_light # Contains `convert`
     jq
-    neovim-nightly
+    neovim
+    #neovim-nightly
     nextcloud-client
+
     (nerdfonts.override {
       fonts = [
         "FiraCode"
@@ -88,6 +90,7 @@ in
     previewer
     # procs
     (python310.withPackages (pp: with pp; [
+      grip
       ipython
       isort
       jedi-language-server
@@ -96,20 +99,23 @@ in
     rg-previewer
     ripgrep
     rnix-lsp
-    # rust-bin.nightly.latest.default
-    rust-bin.stable.latest.default
+    nodejs
+    # (rust-bin.stable.latest.default.override {
+    #   extensions = [ "rust-src" ];
+    # })
     rust-analyzer
-    nodePackages.svelte-language-server
     stylua
     sumneko-lua-language-server
     texlive.combined.scheme-full
     tokei
-    nodePackages.typescript-language-server
-    stylua
     unzip
     vimv
     zip
-  ] ++ lib.lists.optionals isDarwin [
+  ] ++ (with nodePackages; [
+    pyright
+    svelte-language-server
+    typescript-language-server
+  ]) ++ lib.lists.optionals isDarwin [
     binutils
     coreutils
     findutils
@@ -207,7 +213,7 @@ in
     };
 
     "nvim" = {
-      source = "${configDir}/neovim";
+      source = "${configDir}/meovim";
       recursive = true;
     };
 
