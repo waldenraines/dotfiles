@@ -64,6 +64,7 @@
         inherit (args) system;
         specialArgs = {
           cloudDir = "${getHomeDirectory args.system}/Nextcloud";
+          gitDir = "${getHomeDirectory args.system}";
           inherit (args) machine;
           inherit
             colorscheme
@@ -103,6 +104,7 @@
         ];
         extraSpecialArgs = {
           cloudDir = "${getHomeDirectory args.system}/Nextcloud";
+          gitDir = "${getHomeDirectory args.system}";
           inherit (args) machine;
           inherit
             colorscheme

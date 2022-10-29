@@ -7,6 +7,7 @@
 , palette
 , configDir
 , cloudDir
+, gitDir 
 , hexlib
 , ...
 }:
@@ -263,7 +264,7 @@ in
   programs.fish = {
     enable = true;
   } // (import "${configDir}/fish" {
-    inherit pkgs colorscheme palette cloudDir;
+    inherit pkgs colorscheme palette cloudDir gitDir;
     inherit (lib.strings) removePrefix;
   });
 

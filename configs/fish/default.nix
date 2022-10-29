@@ -2,6 +2,7 @@
 , colorscheme
 , palette
 , cloudDir
+, gitDir
 , removePrefix
 }:
 
@@ -34,15 +35,15 @@ in
 
   shellAbbrs = {
     hmn = "home-manager news";
-    hms = "home-manager switch --flake ${cloudDir}/dotfiles";
+    hms = "home-manager switch --flake ${gitDir}/dotfiles";
     ngc = "nix store gc";
     ipy = "ipython";
     lg = "lazygit";
     t = "tdtd";
   } // optionalAttrs isLinux {
-    nrs = "nixos-rebuild switch --flake ${cloudDir}/dotfiles --impure --use-remote-sudo";
+    nrs = "nixos-rebuild switch --flake ${gitDir}/dotfiles --impure --use-remote-sudo";
   } // optionalAttrs isDarwin {
-    drs = "darwin-rebuild switch --flake ${cloudDir}/dotfiles";
+    drs = "darwin-rebuild switch --flake ${gitDir}/dotfiles";
   };
 
   interactiveShellInit = ''
