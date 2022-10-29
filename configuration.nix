@@ -51,6 +51,7 @@ in
   environment.systemPackages = with pkgs; [
     glibc
     neovim
+    vim
   ];
 
   boot = {
