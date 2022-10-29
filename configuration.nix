@@ -44,7 +44,6 @@ in
         "input"
         "networkmanager"
         "plugdev"
-        "vboxusers"
       ];
     };
   };
@@ -125,7 +124,7 @@ in
     enable = true;
   };
 
-  services.printing.enable = true;
+  #services.printing.enable = true;
   services.avahi.enable = true;
   # Important to resolve .local domains of printers, otherwise you get an error
   # like  "Impossible to connect to XXX.local: Name or service not known"
@@ -176,8 +175,8 @@ in
     '';
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "walden" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "walden" ];
 
   #system.autoUpgrade.enable = true;
   #system.autoUpgrade.allowReboot = true;
