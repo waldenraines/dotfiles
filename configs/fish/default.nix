@@ -137,10 +137,5 @@ in
     fuzzy-kill = builtins.readFile ./functions/fuzzy-kill.fish;
     fuzzy-ripgrep = builtins.readFile ./functions/fuzzy-ripgrep.fish;
     fuzzy-search = builtins.readFile ./functions/fuzzy-search.fish;
-
-    # work
-    merge-master-to-dev = builtins.readFile ./functions/merge-master-to-dev.fish;
-    merge-dev-to-stag = builtins.readFile ./functions/merge-dev-to-stag.fish;
-    merge-stag-to-prod = builtins.readFile ./functions/merge-stag-to-prod.fish;
   };
 }
