@@ -47,12 +47,14 @@ in
 {
   home.packages = with pkgs; [
     ### WALDEN ###
+    appimage-run
     chromium
     joplin-desktop
     keepass
     libreoffice
     protonvpn-cli
     signal-desktop
+    sparrow
     srm
     tdrop
     vlc
