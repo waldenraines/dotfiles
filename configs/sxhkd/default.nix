@@ -120,6 +120,6 @@ in
 
     # Screenshot either the whole screen or a portion of it and send a
     # notification.
-    "super + ctrl + {3,4}" = "flameshot {full, gui} -p ~/screenshots";
+    "super + ctrl + {3,4}" = "flameshot {full, gui}";
   };
 }
