@@ -131,6 +131,8 @@ in
   # like  "Impossible to connect to XXX.local: Name or service not known"
   services.avahi.nssmdns = true;
 
+  services.tor.enable = true;
+
   services.transmission = {
     enable = true;
   } // (import "${configDir}/transmission" {
