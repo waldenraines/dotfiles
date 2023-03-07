@@ -1,10 +1,8 @@
 {
-#  experimentalBackends = true;
-
   fade = true;
   fadeDelta = 3;
 
-  settings = { 
+  settings = {
     blur =
     {
       method = "gaussian";

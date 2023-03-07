@@ -12,7 +12,7 @@ in
 
   signing = {
     key = "walden@unchained-capital.com";
-    signByDefault = true;
+    #signByDefault = true;
   };
 
   extraConfig = {
@@ -53,7 +53,5 @@ in
   ignores = [
     ".direnv"
     ".envrc"
-    # "flake.nix"
-    # "flake.lock"
   ];
 }

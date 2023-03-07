@@ -33,7 +33,7 @@ let
       file
       inkscape # SVGs
       mediainfo # audios
-      mkvtoolnix-cli # videos
+      # mkvtoolnix-cli # videos
       poppler_utils # contains `pdftoppm` used for PDFs
     ] ++ lib.lists.optionals isLinux [
       ueberzug
@@ -64,17 +64,20 @@ in
 
     asciinema
     bottom
+    cargo-deny
+    cargo-flamegraph
+    cargo-fuzz
     delta
     dua
     fd
     file
     fuzzy-ripgrep
+    gh
     helix
     hexyl
-    imagemagick_light # Contains `convert`
     jq
+    imagemagick_light # Contains `convert`
     neovim
-    #neovim-nightly
     nextcloud-client
 
     (nerdfonts.override {
@@ -85,31 +88,31 @@ in
         "JetBrainsMono"
         "Mononoki"
         "RobotoMono"
+        "SourceCodePro"
       ];
     })
-    # ookla-speedtest
+    ookla-speedtest
     pfetch
     previewer
-    # procs
+    procs
     (python310.withPackages (pp: with pp; [
       grip
       ipython
-      isort
-      jedi-language-server
-      yapf
+      virtualenv
     ]))
     rg-previewer
     ripgrep
     rnix-lsp
     nodejs
-    # (rust-bin.stable.latest.default.override {
-    #   extensions = [ "rust-src" ];
-    # })
+    (rust-bin.stable.latest.default.override {
+      extensions = [ "rust-src" ];
+    })
     rust-analyzer
     stylua
     sumneko-lua-language-server
     texlive.combined.scheme-full
     tokei
+    tree
     unzip
     vimv
     zip
@@ -195,6 +198,7 @@ in
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
     };
   };
 
@@ -225,7 +229,7 @@ in
       };
     };
 
-    "redshift/hooks/notify-change" = {
+    "redshift/hooks/notify-change" = lib.mkIf isLinux {
       text = import "${configDir}/redshift/notify-change.sh.nix" {
         inherit pkgs;
       };
@@ -233,8 +237,8 @@ in
     };
   };
 
-  xdg.mimeApps = lib.mkIf isLinux {
-    enable = true;
+  xdg.mimeApps = {
+    enable = isLinux;
     defaultApplications = {
       "application/pdf" = [ "org.pwmt.zathura.desktop" ];
       "text/html" = [ "qutebrowser.desktop" ];
@@ -243,8 +247,8 @@ in
     };
   };
 
-  fonts.fontconfig = lib.mkIf isLinux {
-    enable = true;
+  fonts.fontconfig = {
+    enable = isLinux;
   };
 
   programs.alacritty = {
@@ -276,9 +280,9 @@ in
     inherit (lib.strings) removePrefix;
   });
 
-  # programs.firefox = lib.mkIf isDarwin
+  # programs.firefox =
   #   {
-  #     enable = true;
+  #     enable = isDarwin;
   #   } // (import "${configDir}/firefox" {
   #   inherit lib colorscheme font-family machine palette;
   # });
@@ -297,9 +301,7 @@ in
 
   programs.gpg = {
     enable = true;
-  } // (import "${configDir}/gpg/gpg.nix" {
-    homedir = "${cloudDir}/share/gnupg";
-  });
+  };
 
   programs.home-manager = {
     enable = true;
@@ -319,19 +321,11 @@ in
     enable = true;
   } // (import "${configDir}/mpv");
 
-  programs.qutebrowser = lib.mkIf isLinux
-    {
-      enable = true;
-    } // (import "${configDir}/qutebrowser" {
+  programs.qutebrowser = {
+    enable = isLinux;
+  } // (import "${configDir}/qutebrowser" {
     inherit pkgs colorscheme font-family palette hexlib;
   });
-
-  # programs.spacebar = lib.mkIf isDarwin ({
-  #   enable = true;
-  # } // (import "${configDir}/spacebar" {
-  #   inherit colorscheme font-family palette;
-  #   inherit (lib.strings) removePrefix;
-  # }));
 
   programs.starship = {
     enable = true;
@@ -344,41 +338,41 @@ in
     inherit (lib.strings) removePrefix;
   });
 
-  programs.zathura = lib.mkIf isLinux ({
-    enable = true;
+  programs.zathura = ({
+    enable = isLinux;
   } // (import "${configDir}/zathura" {
     inherit colorscheme font-family palette hexlib;
   }));
 
-  services.dunst = lib.mkIf isLinux ({
-    enable = true;
+  services.dunst = ({
+    enable = isLinux;
   } // (import "${configDir}/dunst" {
     inherit colorscheme font-family palette hexlib;
     inherit (pkgs) hicolor-icon-theme;
   }));
 
-  services.flameshot = lib.mkIf isLinux {
-    enable = true;
+  services.flameshot = {
+    enable = isLinux;
   };
 
   # services.fusuma = {
   #   enable = true;
   # } // (import "${configDir}/fusuma");
 
-  services.gpg-agent = lib.mkIf isLinux ({
-    enable = true;
+  services.gpg-agent = ({
+    enable = isLinux;
   } // (import "${configDir}/gpg/gpg-agent.nix"));
 
-  services.mpris-proxy = lib.mkIf isLinux {
-    enable = true;
+  services.mpris-proxy = {
+    enable = isLinux;
   };
 
-  services.picom = lib.mkIf isLinux ({
-    enable = true;
+  services.picom = ({
+    enable = isLinux;
   } // (import "${configDir}/picom"));
 
-  services.polybar = lib.mkIf isLinux ({
-    enable = true;
+  services.polybar = ({
+    enable = isLinux;
     package = pkgs.polybar.override {
       pulseSupport = true;
     };
@@ -387,31 +381,31 @@ in
     inherit (lib) concatStringsSep;
   }));
 
-  services.redshift = lib.mkIf isLinux ({
-    enable = true;
+  services.redshift = ({
+    enable = isLinux;
   } // (import "${configDir}/redshift"));
 
-  services.skhd = lib.mkIf isDarwin ({
-    enable = true;
+  services.skhd = ({
+    enable = isDarwin;
   } // (import "${configDir}/skhd" {
     inherit pkgs;
   }));
 
-  services.sxhkd = lib.mkIf isLinux ({
-    enable = true;
+  services.sxhkd = ({
+    enable = isLinux;
   } // (import "${configDir}/sxhkd" {
     inherit configDir cloudDir;
     inherit (pkgs) writeShellScriptBin;
     inherit (pkgs.writers) writePython3Bin;
   }));
 
-  services.udiskie = lib.mkIf isLinux ({
-    enable = true;
+  services.udiskie = ({
+    enable = isLinux;
   } // (import "${configDir}/udiskie"));
 
-  services.yabai = lib.mkIf isDarwin ({
-    enable = true;
-  } // (import "${configDir}/yabai"));
+  # services.yabai = ({
+  #   enable = isDarwin;
+  # } // (import "${configDir}/yabai"));
 
   systemd.user.startServices = true;
 

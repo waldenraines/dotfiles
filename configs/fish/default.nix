@@ -20,8 +20,11 @@ in
     cat = "bat";
     gc = "git clone";
     rgrep = "rg";
+    gpl = "git pull";
+    gps = "git push";
     ipython = "ipython --no-confirm-exit";
     ls = "ls -Alhv --color --file-type --group-directories-first --quoting-style=literal";
+    ps = "procs";
     wget = "${pkgs.wget}/bin/wget --hsts-file=~/.cache/wget/wget-hsts";
   } // optionalAttrs isDarwin {
     reboot = ''osascript -e "tell app \"System Events\" to restart"'';

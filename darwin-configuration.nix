@@ -17,14 +17,17 @@
   };
 
   homebrew = {
+    onActivation = {
+      cleanup = "zap";
+      upgrade = true;
+    };
     enable = true;
-    cleanup = "zap";
     brews = [
+      "llvm"
       "mas"
       "swift-format"
     ];
     casks = [
-      "alacritty"
       "brave-browser"
       "docker"
       "nordvpn"
@@ -41,7 +44,16 @@
     localHostName = machine;
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+  };
+
+  programs.gnupg = {
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 
   services.nix-daemon.enable = true;
 

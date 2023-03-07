@@ -12,7 +12,7 @@ let
 
     "Inconsolata Nerd Font" = {
       "yesod".size = 11;
-      "skunk".size = 19;
+      "mbair".size = 19;
     };
 
     "Iosevka Nerd Font" = {
