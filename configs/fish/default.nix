@@ -17,6 +17,7 @@ let
 in
 {
   shellAliases = {
+    vim = "nvim";
     cat = "bat";
     gc = "git clone";
     rgrep = "rg";
