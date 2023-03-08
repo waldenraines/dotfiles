@@ -51,7 +51,6 @@ in
   environment.systemPackages = with pkgs; [
     glibc
     neovim
-    vim
   ];
 
   boot = {
@@ -94,7 +93,7 @@ in
     hostName = "yesod";
     useDHCP = false;
     interfaces.eno0.useDHCP = true;
-    interfaces.wlp1s0.useDHCP = true;
+    interfaces.wls6.useDHCP = true;
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [
       8384
