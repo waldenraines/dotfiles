@@ -2,7 +2,7 @@
   description = "walden's dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -13,18 +13,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, ... }@inputs: with inputs;
     let
       username = "walden";
-      colorscheme = "gruvbox";
-      font-family = "JetBrainsMono Nerd Font";
+      colorscheme = "tokyonight";
+      font-family = "Iosevka Nerd Font";
 
       hexlib = import ./palettes/hexlib.nix { inherit (nixpkgs) lib; };
       palette = import (./palettes + "/${colorscheme}.nix");
@@ -81,9 +76,9 @@
             allowUnfree = true;
             allowUnsupportedSystem = true;
           };
-          overlays = [
-            rust-overlay.overlays.default
-          ];
+          # overlays = [
+          #   rust-overlay.overlays.default
+          # ];
         };
         modules = [
           ./home.nix
