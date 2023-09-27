@@ -50,7 +50,7 @@ in
     appimage-run
     chromium
     joplin-desktop
-    keepass
+    keepassxc
     libreoffice
     protonvpn-cli
     signal-desktop
@@ -100,7 +100,7 @@ in
     (python310.withPackages (pp: with pp; [
       grip
       ipython
-      grip
+      pynacl
       virtualenv
     ]))
     rg-previewer

@@ -166,7 +166,7 @@ in
     };
 
     statusbar = {
-      show = "never";
+      show = "in-mode";
       widgets = [ ];
     };
 
@@ -242,6 +242,8 @@ in
       "<Super-Right>" = "rl-end-of-line";
       "<Alt-Backspace>" = "rl-backward-kill-word";
       "<Super-Backspace>" = "rl-unix-line-discard";
+     
+      "pw" = "spawn --userscript qute-keepassxc --key '5055 9852 E6E5 94AD D287 1F05 DFB1 3E13 AB82 BF2D'";
     };
 
     insert = {
@@ -267,6 +269,8 @@ in
       "<Super-8>" = "tab-focus 8";
       "<Super-9>" = "tab-focus 9";
       "<Super-0>" = "tab-focus 10";
+      
+      "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key '5055 9852 E6E5 94AD D287 1F05 DFB1 3E13 AB82 BF2D'";
     };
   };
 
