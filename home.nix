@@ -71,6 +71,7 @@ in
     delta
     dua
     fd
+    ffmpeg
     file
     fuzzy-ripgrep
     gh
@@ -99,13 +100,13 @@ in
     (python310.withPackages (pp: with pp; [
       grip
       ipython
+      grip
       virtualenv
     ]))
     rg-previewer
     ripgrep
     rnix-lsp
     nodejs
-    #rust-analyzer
     rustup
     stylua
     sumneko-lua-language-server
@@ -177,7 +178,7 @@ in
     HISTFILE = "${config.xdg.cacheHome}/bash/bash_history";
     LESSHISTFILE = "${config.xdg.cacheHome}/less/lesshst";
     RIPGREP_CONFIG_PATH = "${configDir}/ripgrep/ripgreprc";
-    NPM_CONFIG_PREFIX = "$HOME/.npm_global_modules";
+    # NPM_CONFIG_PREFIX = "$HOME/.npm_global_modules";
     TDTD_DATA_DIR = "${cloudDir}/tdtd";
     OSFONTDIR = lib.strings.optionalString isLinux (
       config.home.homeDirectory
@@ -217,16 +218,16 @@ in
       source = "${configDir}/fusuma/config.yml";
     };
 
-    "nvim" = {
-      source = "${configDir}/meovim";
-      recursive = true;
-    };
-
-    "nvim/lua/colorscheme.lua" = {
-      text = import "${configDir}/neovim/lua/colorscheme.lua.nix" {
-        inherit colorscheme palette;
-      };
-    };
+    # "nvim" = {
+    #   source = "${configDir}/meovim";
+    #   recursive = true;
+    # };
+    #
+    # "nvim/lua/colorscheme.lua" = {
+    #   text = import "${configDir}/neovim/lua/colorscheme.lua.nix" {
+    #     inherit colorscheme palette;
+    #   };
+    # };
 
     "redshift/hooks/notify-change" = lib.mkIf isLinux {
       text = import "${configDir}/redshift/notify-change.sh.nix" {

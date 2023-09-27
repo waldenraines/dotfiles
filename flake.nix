@@ -18,10 +18,10 @@
   outputs = { self, ... }@inputs: with inputs;
     let
       username = "walden";
-      #colorscheme = "tokyonight";
-      #font-family = "Iosevka Nerd Font";
       colorscheme = "gruvbox";
       font-family = "JetBrainsMono Nerd Font";
+#      colorscheme = "tokyonight";
+#      font-family = "Inconsolata Nerd Font";
 
       hexlib = import ./palettes/hexlib.nix { inherit (nixpkgs) lib; };
       palette = import (./palettes + "/${colorscheme}.nix");
