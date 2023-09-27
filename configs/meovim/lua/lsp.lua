@@ -79,15 +79,15 @@ lspconfig.pyright.setup({
 })
 
 -- Rust -> https://github.com/rust-lang/rust-analyzer
-lspconfig.rust_analyzer.setup({
-  on_attach = on_attach,
-  settings = {
-    ["rust-analyzer"] = {
-      -- checkOnSave = { command = "clippy" },
-      procMacro = { enable = true },
-    }
-  }
-})
+--lspconfig.rust_analyzer.setup({
+--  on_attach = on_attach,
+--  settings = {
+--    ["rust-analyzer"] = {
+ --     -- checkOnSave = { command = "clippy" },
+ --     procMacro = { enable = true },
+ --   }
+ -- }
+--})
 
 -- Swift -> https://github.com/apple/sourcekit-lsp
 lspconfig.sourcekit.setup({

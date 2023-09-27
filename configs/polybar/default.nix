@@ -203,14 +203,14 @@ in
         foreground = colors.ethernet.icon;
       };
       format.muted = {
-        text = "%{T2}婢%{T-}";
+        text = "%{T2}󰖁%{T-}";
         padding = 1;
         foreground = colors.wifi.icon.off;
       };
       ramp-volume = [
-        "奄"
-        "奔"
-        "墳"
+        ""
+        "󰖀"
+        ""
       ];
     };
 
@@ -226,7 +226,7 @@ in
       label.discharging = label.charging;
       label.full = label.charging;
       format.charging = {
-        text = "ﮣ <label-charging>";
+        text = "󰂄 <label-charging>";
         padding = 1;
         foreground = colors.battery.icon.charging;
       };
@@ -235,16 +235,21 @@ in
         padding = 1;
       };
       format.full = {
-        text = "%{T6}ﮣ%{T-} <label-full>";
+        text = "%{T6}󰁹%{T-} <label-full>";
         padding = 1;
         foreground = colors.battery.icon.charging;
       };
       ramp-capacity.text = [
-        "  "
-        "  "
-        "  "
-        "  "
-        "  "
+        "󰁺 "
+        "󰁻 "
+        "󰁼 "
+        "󰁽 "
+        "󰁾 "
+        "󰁿 "
+        "󰂀 "
+        "󰂁 "
+        "󰂂 "
+
       ];
       ramp-capacity.foreground = colors.battery.icon.ok;
       ramp-capacity-0.foreground = colors.battery.icon.dying;

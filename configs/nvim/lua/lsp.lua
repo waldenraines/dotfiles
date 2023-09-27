@@ -52,27 +52,27 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.rust_analyzer.setup({
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      check = {
-        command = "clippy",
-      },
-      completion = {
-        limit = 69,
-        privateEditable = {
-          enable = true,
-        },
-      },
-      imports = {
-        merge = {
-          blob = false,
-        },
-      },
-      procMacro = {
-        enable = true,
-      },
-    },
-  },
-})
+--lspconfig.rust_analyzer.setup({
+--  capabilities = capabilities,
+--  settings = {
+--    ["rust-analyzer"] = {
+--      check = {
+--        command = "clippy",
+--      },
+--      completion = {
+--        limit = 69,
+--        privateEditable = {
+--          enable = true,
+--        },
+--      },
+--      imports = {
+--        merge = {
+--          blob = false,
+--        },
+--      },
+--      procMacro = {
+--        enable = true,
+--      },
+--    },
+--  },
+--})

@@ -105,7 +105,7 @@ in
     ripgrep
     rnix-lsp
     nodejs
-    rust-analyzer
+    #rust-analyzer
     rustup
     stylua
     sumneko-lua-language-server
