@@ -11,13 +11,13 @@ in
   userEmail = "walden@waldenraines.com";
 
   signing = {
-    key = "walden@unchained-capital.com";
+    key = "walden@waldenraines.com";
     #signByDefault = true;
   };
 
   extraConfig = {
     init = {
-      defaultBranch = "master";
+      defaultBranch = "main";
     };
 
     pull = {

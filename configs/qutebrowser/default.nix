@@ -124,7 +124,6 @@ in
 
     content = {
       autoplay = false;
-      javascript.can_access_clipboard = true;
       pdfjs = true;
     };
 

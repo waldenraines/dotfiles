@@ -109,7 +109,7 @@ in
         "8;8"
         "9;9"
         "0;0"
-        "videos;%{T3}%{T-}"
+        "videos;%{T3}%{T-}"
       ];
 
       label.focused = {
